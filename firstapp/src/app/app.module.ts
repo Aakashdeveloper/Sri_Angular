@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './books.component';
+import { ProductComponent } from './products/product.component';
 
 @NgModule({
 
@@ -14,7 +15,8 @@ import { BookComponent } from './books.component';
     // All Components Pipe
     declarations: [
         AppComponent,
-        BookComponent
+        BookComponent,
+        ProductComponent
     ],
 
     // Only First component
