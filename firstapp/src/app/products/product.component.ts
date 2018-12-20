@@ -2,11 +2,16 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-prod',
-    templateUrl: './product.component.html'
+    templateUrl: './product.component.html',
+    // styles: ['thead{color:green}', 'h3{color:tomato}']
+    styleUrls: ['./product.component.css']
 })
 
 export class ProductComponent {
     title: String = '****Product List****';
+    showImage: Boolean = true;
+    imageWidth: Number = 100;
+    filterData: String = 'SRI';
     products: any[] = [
         {
             '_id': '5a05dacc734d1d68d42d31f3',
@@ -31,6 +36,10 @@ export class ProductComponent {
             'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png'
         }
     ];
+
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
 }
 
 
