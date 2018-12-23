@@ -45,11 +45,11 @@
                                     *ngIf="showImage"
                                     [style.width.px]="imageWidth"/>
                             </td>
-                            <td>{{prod.productName|uppercase}}</td>
-                            <td>{{prod.productCode|lowercase}}</td>
+                            <td>{{prod.productName | myUpper:'upper'}}</td>
+                            <td>{{prod.productCode| myUpper:'lower'}}</td>
                             <td>{{prod.releaseDate}}</td>
                             <td [ngStyle]="{'background-color':prod.price<20?'green':'red'}">
-                                {{prod.price|currency:'INR'}}
+                                {{prod.price | discount | currency:'INR'}}
                             </td>
                             <td>{{prod.starRating}}</td>
                         </tr>

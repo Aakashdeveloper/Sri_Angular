@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BookComponent } from './books.component';
 import { ProductComponent } from './products/product.component';
+import { MyUpperPipe } from './products/myUpper.pipe';
+import { DiscountPipe } from './products/discount.pipe';
 
 @NgModule({
 
@@ -14,11 +16,13 @@ import { ProductComponent } from './products/product.component';
         FormsModule
      ],
 
-    // All Components Pipe
+    // All Components  & Pipe
     declarations: [
         AppComponent,
         BookComponent,
-        ProductComponent
+        ProductComponent,
+        MyUpperPipe,
+        DiscountPipe
     ],
 
     // Only First component
