@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Number of Product Search {{filterData}}</h3>
+                    <h3>Number of Product Search {{(products | filterProduct:filterData).length}}</h3>
                 </div>
             </div>
             
@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let prod of products"
+                        <tr *ngFor="let prod of products | filterProduct:filterData"
                             >
                             <td>
                                 <img [src]="prod.imageUrl" 
@@ -51,7 +51,9 @@
                             <td [ngStyle]="{'background-color':prod.price<20?'green':'red'}">
                                 {{prod.price | discount | currency:'INR'}}
                             </td>
-                            <td>{{prod.starRating}}</td>
+                            <td>
+                                <app-star></app-star>
+                            </td>
                         </tr>
                     
                     </tbody>
