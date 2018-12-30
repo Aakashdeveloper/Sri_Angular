@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './books.component';
@@ -12,6 +13,9 @@ import { DiscountPipe } from './products/discount.pipe';
 import { FilterProduct } from './products/filterProduct.pipe';
 import { StarComponent } from './shared/star.component';
 import { ProducService } from './products/product.service';
+import { HomeComponent } from './home/home.component';
+import { OrderComponent } from './orders/order.component';
+import { ProductDetailComponent } from './products/productDetail.component';
 
 @NgModule({
 
@@ -20,7 +24,14 @@ import { ProducService } from './products/product.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterModule.forRoot([
+            {path: 'products', component: ProductComponent},
+            {path: 'products/:id', component: ProductDetailComponent},
+            {path: 'orders', component: OrderComponent},
+            {path: 'home', component: HomeComponent},
+            {path: '', redirectTo: 'home', pathMatch: 'full'}
+        ])
      ],
 
     // All Components  & Pipe
@@ -31,7 +42,10 @@ import { ProducService } from './products/product.service';
         MyUpperPipe,
         DiscountPipe,
         FilterProduct,
-        StarComponent
+        StarComponent,
+        HomeComponent,
+        OrderComponent,
+        ProductDetailComponent
     ],
 
     // Only First component

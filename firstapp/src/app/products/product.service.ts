@@ -18,8 +18,11 @@ export class ProducService {
     getProduct(): Observable<IProduct[]> {
         return this.__http.get<IProduct[]>(this._productUrl);
     }
-}
 
+    getProductDetail(id): Observable<IProduct[]> {
+        return this.__http.get<IProduct[]>(`${this._productUrl}?productId=${id}`);
+    }
+}
 
 /*
 getProduct(): Promise<IProduct[]> {
