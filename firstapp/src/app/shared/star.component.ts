@@ -1,6 +1,6 @@
 import { Component, OnChanges,  Input,
         Output, EventEmitter } from '@angular/core';
-import { debugOutputAstAsTypeScript } from '../../../node_modules/@angular/compiler';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 @Component({
     selector: 'app-star',
