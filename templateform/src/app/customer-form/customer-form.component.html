@@ -1,0 +1,101 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    CustomerForm
+  </div>
+  <div class="panel-body">
+    <form #form="ngForm" (submit)="formSubmit(form)">
+      <div class="form-group">
+        <label>FirstName</label>
+          <input type="text" 
+                class="form-control"
+                placeholder="FirstName"
+                name="firstName"
+                [(ngModel)]="model.firstName"
+                #FirstName="ngModel"
+                required
+                id="firstName"/>
+          <div>
+            <div class="alert alert-danger" *ngIf="FirstName.invalid">
+              FirstName is required
+            </div>
+            <h3>Classess</h3>
+            <h3>{{FirstName.valid}}</h3>
+          </div>
+      </div>
+      <div class="form-group">
+          <label>LastName</label>
+            <input type="text" 
+                  class="form-control"
+                  placeholder="LastName"
+                  name="lastName"
+                  [(ngModel)]="model.lastName"
+                  id="lastName"/>
+      </div>
+      <div class="form-group">
+          <label>Password</label>
+            <input type="password" 
+                  class="form-control"
+                  placeholder="Password"
+                  name="password"
+                  minlength="5"
+                  #password="ngModel"
+                  [(ngModel)]="model.password"
+                  id="password"/>
+                  <div class="alert alert-danger" *ngIf="password.invalid">
+                      Min length is 5
+                  </div>
+      </div>
+      <div class="form-group">
+          <label>Email</label>
+            <input type="text" 
+                  class="form-control"
+                  placeholder="email"
+                  name="email"
+                  [(ngModel)]="model.email"
+                  pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,5})$"
+                  #email="ngModel"
+                  id="email"/>
+                  <div class="alert alert-danger" *ngIf="email.invalid">
+                      enter Valid Email
+                  </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"
+              name="fullTime"
+              value="fullTime"
+              [(ngModel)]="model.fullTime"
+            />FullTime
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio"
+                name="gender"
+                [(ngModel)]="model.gender"
+                value="female"/>Female
+        </label>
+      </div>
+      <div class="radio">
+          <label>
+            <input type="radio"
+                  name="gender"
+                  [(ngModel)]="model.gender"
+                  value="male"/>Male
+          </label>
+      </div>
+      <div class="form-group">
+        <label>Code Lang</label>
+        <select class="form-control"
+              [(ngModel)]="model.codelang"
+            name="codelang">
+            <option *ngFor="let lang of languages">
+              {{lang}}
+            </option>
+            
+        </select>
+      </div>
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+  </div>
+</div>  
